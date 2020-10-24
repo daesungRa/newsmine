@@ -28,6 +28,3 @@ test/
 
 venv/
 ./**/venv/
-
-default
-./**/default
