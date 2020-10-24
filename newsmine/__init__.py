@@ -1,5 +1,5 @@
-# from gevent import monkey
-# monkey.patch_all()
+from gevent import monkey
+monkey.patch_all()
 
 import logging
 import os
@@ -77,7 +77,6 @@ def register_error_pages(app: Flask):
     def page_not_found(error):
         LOGGER.error(error)
         return render_template('error/404.html'), 200
-
 
     @app.errorhandler(500)
     def server_side_error(error):
