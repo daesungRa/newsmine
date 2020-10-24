@@ -1,8 +1,6 @@
 # Newsmine
 
-Newsmine is based on the [Flask](https://github.com/pallets/flask) project owned by [pallets team](https://github.com/pallets).
-
-This project aims to provide a collection of news of your choice.
+Newsmine is based on the [Flask](https://github.com/pallets/flask) project owned by [pallets team](https://github.com/pallets). This project aims to provide a collection of news of your choice.
 
 **Anyone can modify and distribute this project.**
 
@@ -45,5 +43,5 @@ This project aims to provide a collection of news of your choice.
 
 | Tool | Description | Version |
 |:--|:--|:--|
-| Python | Main lang | 3.6.8 |
+| Python | Main lang | 3.6 |
 
