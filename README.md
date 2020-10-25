@@ -49,6 +49,41 @@ Newsmine is based on the [Flask](https://github.com/pallets/flask) project owned
 (venv) /project/root/path $ ptw  // pytest-watch
 ```
 
+sample test code
+
+```python
+from json import loads
+
+from newsmine import create_app
+
+
+class MainTest:
+    def __init__(self):
+        self.app = create_app()
+        self.client = self.app.test_client()
+
+    def test(self):
+        resp = self.client.get('/test')
+        assert resp.status_code == 200
+        assert '[TEST] Hello, Newsmine!' in loads(resp.data)['data']
+
+    def root(self):
+        resp = self.client.get('/')
+        assert resp.status_code == 302  # redirection to main
+
+    def main(self):
+        resp = self.client.get('/main')
+        assert resp.status_code == 200
+        assert 'This is main page!' in loads(resp.data)['data']
+
+
+def test_main():
+    main_test = MainTest()
+    main_test.test()
+    main_test.root()
+    main_test.main()
+```
+
 ## Version info
 
 | Tool | Description | Version |
