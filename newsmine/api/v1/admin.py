@@ -9,7 +9,7 @@ LOGGER = logging.getLogger(__name__)
 API = Blueprint('admin', __name__, url_prefix='/api/v1/admin')
 
 
-@API.route('')
+@API.route('/')
 def admin():
     LOGGER.info('Call admin. check for session..')
     session_cookie = request.cookies.get('session')
@@ -26,9 +26,10 @@ def admin():
 @API.route('/login')
 def login():
     LOGGER.info('Call login!')
+    return jsonify(data='Call login page.')
 
 
 @API.route('/logout')
 def logout():
     LOGGER.info('Call logout!')
-
+    return jsonify(data='Call logout page.')
