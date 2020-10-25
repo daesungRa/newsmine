@@ -35,12 +35,13 @@ def root():
 @API.route('/admin')
 def admin():
     LOGGER.info('Call admin. redirect to admin version v1.')
-    resp = make_response(redirect('/api/v1/admin'))
+    resp = make_response(redirect('/v1/admin'))
     return resp
 
 
-@API.route('/data')
-def data():
-    LOGGER.info('Call data. redirect to data version v1.')
-    resp = make_response(redirect('/api/v1/data'))
+@API.route('/mynews')
+def mynews():
+    LOGGER.info('Call mynews. redirect to news version v1.')
+    sample_query = 'bitcoin'
+    resp = make_response(redirect(f'/v1/data/mynews/{sample_query}'))
     return resp
