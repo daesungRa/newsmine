@@ -194,3 +194,6 @@ default
 # docker
 Dockerfile
 
+# config file
+*.yaml
+./**/*.yaml
