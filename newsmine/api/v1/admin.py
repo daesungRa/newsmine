@@ -6,7 +6,7 @@ from newsmine.db.mysql.users import Users
 from newsmine.db.redis.session import Session
 
 LOGGER = logging.getLogger(__name__)
-API = Blueprint('admin', __name__, url_prefix='/api/v1/admin')
+API = Blueprint('admin', __name__, url_prefix='/v1/admin')
 
 
 @API.route('/')
