@@ -1,9 +1,7 @@
 import logging
 
-from flask import Blueprint, jsonify, make_response, redirect
-
-from newsmine.db.mysql.users import Users
-from newsmine.db.redis.session import Session
+from flask import Blueprint, jsonify, \
+    make_response, redirect
 
 LOGGER = logging.getLogger(__name__)
 API = Blueprint('main', __name__, url_prefix='/')

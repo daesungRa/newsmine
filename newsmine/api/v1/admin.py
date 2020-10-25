@@ -6,7 +6,7 @@ from newsmine.db.mysql.users import Users
 from newsmine.db.redis.session import Session
 
 LOGGER = logging.getLogger(__name__)
-API = Blueprint('admin', __name__, url_prefix='/admin')
+API = Blueprint('admin', __name__, url_prefix='/api/v1/admin')
 
 
 @API.route('')
@@ -21,7 +21,6 @@ def admin():
             return jsonify(data=f'{username} Already logged in. go to index page.')
     # TODO: Render login.html
     return jsonify(data='No session, please log in first.')
-
 
 
 @API.route('/login')

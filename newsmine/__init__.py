@@ -10,9 +10,14 @@ from logging.handlers import TimedRotatingFileHandler
 from flask import Flask, render_template
 from flask_cors import CORS
 
-# import config  # TODO: Create default config file
+# Import config  # TODO: Create default config file
+
+# Import page APIs
 from newsmine.api import main
-from newsmine.api import admin
+
+# Import service APIs with versioning
+from newsmine.api.v1 import admin as ADMIN_V1
+from newsmine.api.v1 import data as DATA_V1
 
 LOGGER = logging.getLogger(__name__)
 
@@ -26,7 +31,7 @@ def create_app() -> Flask:
     app.config['MAX_CONTENT_LENGTH'] = 1 << 40
     app.config['SECRET_KEY'] = os.urandom(12)
     # app.config['PERMANENT_SESSION_LIFETIME'] = config.session_config['permanent_session_lifetime']
-    
+
     CORS(app)
 
     LOGGER.info('Application setting done..')
@@ -68,8 +73,12 @@ def set_logger():
 
 
 def register_blueprints(app: Flask):
+    # Register page APIs
     app.register_blueprint(main.API)
-    app.register_blueprint(admin.API)
+
+    # Register service APIs with versioning
+    app.register_blueprint(ADMIN_V1.API)
+    app.register_blueprint(DATA_V1.API)
 
 
 def register_error_pages(app: Flask):
