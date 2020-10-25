@@ -6,6 +6,7 @@ LOGGER = logging.getLogger(__name__)
 API = Blueprint('data', __name__, url_prefix='/api/v1/data')
 
 
-@API.route('/news')
+@API.route('/')
 def data():
-    pass
+    LOGGER.info('Call data!')
+    return jsonify(data='Call data.')
