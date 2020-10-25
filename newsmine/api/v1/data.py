@@ -3,12 +3,14 @@ import logging
 
 from flask import Blueprint, jsonify
 
+from config import CONFIG
+
 LOGGER = logging.getLogger(__name__)
 API = Blueprint('data', __name__, url_prefix='/v1/data')
 
-NAVER_DEV_API = 'https://openapi.naver.com/v1/search/news'
-CLIENT_ID = ''
-CLIENT_SECRET = ''
+NEWS_API = CONFIG['API']['url.naverdev.news']
+CLIENT_ID = CONFIG['VAL']['naverdev.client.id']
+CLIENT_SECRET = CONFIG['VAL']['naverdev.client.secret']
 
 
 @API.route('/mynews/<query>')
@@ -16,7 +18,7 @@ def mynews(query):
     display, sort = 10, 'sim'
     try:
         resp = requests.get(
-            url=NAVER_DEV_API,
+            url=NEWS_API,
             params={
                 'query': query,
                 'display': display,

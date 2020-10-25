@@ -1,0 +1,9 @@
+VERSION: 0.0.1
+
+VAL:
+  naverdev.client.id:  # ClientId
+  naverdev.client.secret:  # ClientSecret
+
+API:
+  url.naverdev.blog:  # openapi naver blog
+  url.naverdev.news:  # openapi naver news
