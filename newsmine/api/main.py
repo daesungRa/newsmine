@@ -1,3 +1,11 @@
+"""
+Default main route.
+
+It provides a common page and redirect APIs.
+Redirect APIs redirect to v1 path.
+"""
+
+
 import logging
 
 from flask import Blueprint, jsonify, \

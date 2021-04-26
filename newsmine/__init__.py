@@ -32,7 +32,7 @@ def create_app() -> Flask:
     app.config['SECRET_KEY'] = os.urandom(12)
     # app.config['PERMANENT_SESSION_LIFETIME'] = config.session_config['permanent_session_lifetime']
 
-    CORS(app)
+    # CORS(app)  # TODO: Add resources
 
     LOGGER.info('Application setting done..')
     return app
