@@ -1,3 +1,10 @@
+"""
+Admin route.
+
+It provides admin APIs.
+"""
+
+
 import logging
 
 from flask import Blueprint, jsonify, request

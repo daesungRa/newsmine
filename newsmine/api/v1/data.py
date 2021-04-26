@@ -1,3 +1,10 @@
+"""
+Data route.
+
+It provides data APIs.
+"""
+
+
 import requests
 import logging
 

@@ -7,6 +7,17 @@ LOGGER = logging.getLogger(__name__)
 
 
 class Config:
+    """
+    Provide Config object by loading project environment variables from "newsmine.yaml" file in conf.d.
+    The self._config value in the Config object is a dictionary of environment variables.
+
+    Also, the version is checked by comparing the "newsmine.yaml.sample" file with the VERSION variable
+    during the object creation process, so please match the version. (Refer to self._check_version function)
+
+    :param config_file:
+        The path of config yaml file.
+        In this case, enter the path to the newsmine.yaml file within conf.d.
+    """
     def __init__(self, config_file: Path):
         self._config = self._load_config(config_file)
         self._sample_config = self._load_config(
